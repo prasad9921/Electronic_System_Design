@@ -1,0 +1,4 @@
+".\Objects\home automation1.obj" 
+TO ".\Objects\home automation1" 
+PRINT(".\Listings\home automation1.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

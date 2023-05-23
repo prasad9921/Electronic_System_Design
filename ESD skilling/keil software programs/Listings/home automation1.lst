@@ -1,0 +1,91 @@
+C51 COMPILER V9.60.0.0   HOME_AUTOMATION1                                                  09/25/2019 16:50:34 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE HOME_AUTOMATION1
+OBJECT MODULE PLACED IN .\Objects\home automation1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE home automation1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\home automation1.lst) TABS(2) OBJECT(.\Objects\home automation1.obj)
+
+line level    source
+
+   1          #include <reg52.h>     
+   2          sbit RLY1=P1^0; 
+   3          #define P3=0;
+   4          unsigned char dataa=0;
+   5          
+   6          void delay_ms(unsigned int msec)  
+   7          {
+   8   1        unsigned int i,j;
+   9   1        for(i=0;i<msec;i++)
+  10   1        for(j=0;j<1275;j++);
+  11   1      }
+  12          
+  13          unsigned char Rx_data(void)
+  14          {
+  15   1        RI=0;
+  16   1        while(RI==0);
+  17   1        return(SBUF);
+  18   1      }
+  19          
+  20          void spini()
+  21          {
+  22   1      SCON=0x50;
+  23   1      TMOD=0x20;
+  24   1      TH1=-3;
+  25   1      TR1=1;
+  26   1      }
+  27          
+  28          void main()
+  29          {
+  30   1      spini();  
+  31   1      /*  
+  32   1      RLY1=1;   
+  33   1      delay_ms(1000);        
+  34   1      RLY1=0;   
+  35   1      delay_ms(1000); 
+  36   1        
+  37   1      RLY1=1;   // Relay is ON State
+  38   1      delay_ms(1000);   // 1 sec Delay
+  39   1      RLY1=0;   // Relay is OFF State
+  40   1      delay_ms(1000);   // 1 sec Delay
+  41   1      */
+  42   1      RLY1=1;    //Relay is ON State
+  43   1      delay_ms(1000);   // 1 sec Delay
+  44   1      RLY1=0;   // Relay is Off State
+  45   1      delay_ms(1000);   // 1 sec Delay
+  46   1      
+  47   1      
+  48   1      while(1)
+  49   1      {
+  50   2      dataa=Rx_data();
+  51   2      if(dataa=='1')
+  52   2      {
+  53   3      RLY1=1;   //If Received Data==1
+  54   3      delay_ms(10);
+C51 COMPILER V9.60.0.0   HOME_AUTOMATION1                                                  09/25/2019 16:50:34 PAGE 2   
+
+  55   3      }
+  56   2      else if(dataa=='2')
+  57   2      {
+  58   3      RLY1=0;   //when received data==2
+  59   3      delay_ms(10); 
+  60   3      }
+  61   2      else
+  62   2      {
+  63   3      dataa=dataa;
+  64   3      delay_ms(100);  
+  65   3      }}}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    111    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

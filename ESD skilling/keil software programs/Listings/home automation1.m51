@@ -1,0 +1,152 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    09/25/2019  16:50:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\home automation1.obj TO .\Objects\home automation1 PRINT (.\Listings\home automati
+>> on1.m51) RAMSIZE (256) CODE (0X0000-0X1FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\home automation1.obj (HOME_AUTOMATION1)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\home automation1 (HOME_AUTOMATION1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?HOME_AUTOMATION1
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     003BH     UNIT         ?PR?MAIN?HOME_AUTOMATION1
+            CODE    08C7H     0020H     UNIT         ?PR?_DELAY_MS?HOME_AUTOMATION1
+            CODE    08E7H     000CH     UNIT         ?PR?SPINI?HOME_AUTOMATION1
+            CODE    08F3H     0008H     UNIT         ?PR?RX_DATA?HOME_AUTOMATION1
+            CODE    08FBH     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\home automation1 (HOME_AUTOMATION1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?HOME_AUTOMATION1
+  +--> ?C_INITSEG
+
+?PR?MAIN?HOME_AUTOMATION1
+  +--> ?PR?SPINI?HOME_AUTOMATION1
+  +--> ?PR?_DELAY_MS?HOME_AUTOMATION1
+  +--> ?PR?RX_DATA?HOME_AUTOMATION1
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\home automation1 (HOME_AUTOMATION1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  09/25/2019  16:50:35  PAGE 2
+
+
+
+  -------         MODULE        HOME_AUTOMATION1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  C:08E7H         PUBLIC        spini
+  C:088CH         PUBLIC        main
+  B:0090H.0       PUBLIC        RLY1
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:08F3H         PUBLIC        Rx_data
+  D:008DH         PUBLIC        TH1
+  C:08C7H         PUBLIC        _delay_ms
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  D:0008H         PUBLIC        dataa
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        msec
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08C7H         LINE#         6
+  C:08C7H         LINE#         7
+  C:08C7H         LINE#         9
+  C:08D1H         LINE#         10
+  C:08E6H         LINE#         11
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          RX_DATA
+  C:08F3H         LINE#         13
+  C:08F3H         LINE#         14
+  C:08F3H         LINE#         15
+  C:08F5H         LINE#         16
+  C:08F8H         LINE#         17
+  C:08FAH         LINE#         18
+  -------         ENDPROC       RX_DATA
+  -------         PROC          SPINI
+  C:08E7H         LINE#         20
+  C:08E7H         LINE#         21
+  C:08E7H         LINE#         22
+  C:08EAH         LINE#         23
+  C:08EDH         LINE#         24
+  C:08F0H         LINE#         25
+  C:08F2H         LINE#         26
+  -------         ENDPROC       SPINI
+  -------         PROC          MAIN
+  C:088CH         LINE#         28
+  C:088CH         LINE#         29
+  C:088CH         LINE#         30
+  C:088FH         LINE#         42
+  C:0891H         LINE#         43
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  09/25/2019  16:50:35  PAGE 3
+
+
+  C:0898H         LINE#         44
+  C:089AH         LINE#         45
+  C:089CH         LINE#         48
+  C:089CH         LINE#         49
+  C:089CH         LINE#         50
+  C:08A1H         LINE#         51
+  C:08A6H         LINE#         52
+  C:08A6H         LINE#         53
+  C:08A8H         LINE#         54
+  C:08ACH         LINE#         55
+  C:08AEH         LINE#         56
+  C:08B3H         LINE#         57
+  C:08B3H         LINE#         58
+  C:08B5H         LINE#         59
+  C:08BCH         LINE#         60
+  C:08BEH         LINE#         62
+  C:08BEH         LINE#         63
+  C:08BEH         LINE#         64
+  C:08C5H         LINE#         65
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        HOME_AUTOMATION1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0072H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=258
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

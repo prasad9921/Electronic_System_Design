@@ -1,0 +1,66 @@
+#include <reg52.h>     
+sbit RLY1=P1^0;	
+#define P3=0;
+unsigned char dataa=0;
+
+void delay_ms(unsigned int msec)  
+{
+	unsigned int i,j;
+	for(i=0;i<msec;i++)
+	for(j=0;j<1275;j++);
+}
+
+unsigned char Rx_data(void)
+{
+	RI=0;
+	while(RI==0);
+	return(SBUF);
+}
+
+void spini()
+{
+SCON=0x50;
+TMOD=0x20;
+TH1=-3;
+TR1=1;
+}
+
+void main()
+{
+spini();	
+/*	
+RLY1=1;		
+delay_ms(1000);        
+RLY1=0;		
+delay_ms(1000);	
+	
+RLY1=1;		// Relay is ON State
+delay_ms(1000); 	// 1 sec Delay
+RLY1=0;		// Relay is OFF State
+delay_ms(1000); 	// 1 sec Delay
+*/
+RLY1=1;		 //Relay is ON State
+delay_ms(1000);  	// 1 sec Delay
+RLY1=0;		// Relay is Off State
+delay_ms(1000);  	// 1 sec Delay
+
+
+while(1)
+{
+	
+dataa=Rx_data();
+if(dataa=='1')
+{
+RLY1=1;		//If Received Data==1
+delay_ms(10);
+}
+else if(dataa=='2')
+{
+RLY1=0;		//when received data==2
+delay_ms(10);	
+}
+else
+{
+dataa=dataa;
+delay_ms(100);	
+}}}
